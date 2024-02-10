@@ -33,7 +33,7 @@ def play_game():
     computer_score = 0
 
     while True:
-        player_choice = input(f"Введіть свій вибір ({item["stone"]}, {item["scissors"]}, {item["paper"]}, {item["lizard"]} або {item["spok"]}): ").lower()
+        player_choice = input(f"Введіть свій вибір ({item['stone']}, {item['scissors']}, {item['paper']}, {item['lizard']} або {item['spok']}): ").lower()
 
         if player_choice not in choices:
             print("Будь ласка, введіть правильний вибір.")
