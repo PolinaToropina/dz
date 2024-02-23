@@ -10,7 +10,7 @@ def copy_images(source_dir, destination_dir):
 
     for filename in os.listdir(source_dir):
         source_path = os.path.join(source_dir, filename)
-        if filename.lower().endswith(('.png', '.jpg', '.bmp')):
+        if filename.lower().endswith(('.png', '.jpg', '.bmp', '.pdf')):
             copy(source_path, destination_dir)
             print(f"Скопійовано: {filename}")
 
