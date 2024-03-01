@@ -1,4 +1,4 @@
-group_names = ["Аріна", "Аліса", "Антон", "Ернест", "Поліна", "Ірина", "Всеволод"]
+group_names = ["Поліна", "Ірина", "Всеволод"]
 
 def check_login(name):
     if name in group_names:
