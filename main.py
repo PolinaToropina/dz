@@ -1,48 +1,36 @@
-# a = 2
-# b = 5
-#
-# c = b
-#
-# print("Start app")
-#
-# d = c - a
-#
-# div = a / d
-#
-# print(f"{div}")
+import re
+import tkinter as tk
 
-# a = 5
-# b = 2
-# sum1 = a + b
-# print(f"{sum1}")
-#
-# c = 3
-# d = 5
-# sum2 = c + d
-# print(f"{sum2}")
+def validate_credentials():
+    login = login_entry.get()
+    password = password_entry.get()
 
-# def sumInt(a, b):
-#     print("sum of Int values: ")
-#
-#     sum = a + b
-#     print(sum)
-#
-# sumInt(2, 3)
+root = tk.Tk()
+root.geometry("1000x500+700+500")
+root.resizable(False, False)
 
-def divInt(a : int, b : int) -> int:
-    if b == 0:
-        print(f"divive by {b} not possible")
-        return 0
+login_pattern = re.compile(r"^\w{3,16}@[a-z]{3,10}\.[a-z]{3,10}")
+password_pattern = re.compile(r"^\w{8,16}$")
 
-    return int(a / b)
+login_label = tk.Label(root, text='Логін', padx=50)
+login_entry = tk.Entry(root, width=20)
 
-#=============CLIENT CODE=============#
+password_label = tk.Label(root, text='Пароль', padx=50)
+password_entry = tk.Entry(root, width=20, show='*')
 
-value1 = float(input('enter value1 -> '))
-value2 = float(input('enter value2 -> '))
+authorize_button = tk.Button(root, text='Авторизація')
 
-sum = divInt(value1, value2);
+root.grid_columnconfigure(0, minsize=150)
+root.grid_columnconfigure(1, minsize=250)
+root.grid_rowconfigure(0, minsize=90)
+root.grid_rowconfigure(1, minsize=90)
 
-print(f"sum of Int values: {sum}")
+login_label.grid(column=0, row=0)
+login_entry.grid(column=1, row=0)
 
+password_label.grid(column=0, row=1)
+password_entry.grid(column=1, row=1)
 
+authorize_button.grid(column=1, row=2, pady=10)
+
+root.mainloop()

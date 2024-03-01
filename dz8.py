@@ -51,5 +51,3 @@ decreaseBtn.pack(side=tk.RIGHT, padx=10)
 set_target_clicks()
 
 root.mainloop()
-
-
