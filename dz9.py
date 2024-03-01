@@ -72,22 +72,22 @@ root.minsize(400, 300)
 root.maxsize(800, 600)
 
 
-myLabel = tk.Label(root, text='Clicks: 0/0', bg='#9feb34', fg='#3461eb', width=20, height=3, anchor='center', relief=tk.SOLID)
+myLabel = tk.Label(root, text='Player 1 clicks: 0/0', bg='#9feb34', fg='#3461eb', width=20, height=3, anchor='center', relief=tk.SOLID)
 myLabel.pack(pady=20)
 
-myLabel2 = tk.Label(root, text='Clicks: 0/0', bg='#9feb34', fg='#3461eb', width=20, height=3, anchor='center', relief=tk.SOLID)
+myLabel2 = tk.Label(root, text='Player 2 clicks: 0/0', bg='#9feb34', fg='#3461eb', width=20, height=3, anchor='center', relief=tk.SOLID)
 myLabel2.pack(pady=20)
 
-increaseBtn = tk.Button(root, text='Increase1', bg='darkblue', fg='white', relief=tk.SOLID, command=click_increase)
+increaseBtn = tk.Button(root, text='Increase - S', bg='darkblue', fg='white', relief=tk.SOLID, command=click_increase)
 increaseBtn.pack(side=tk.LEFT, padx=10)
 
-decreaseBtn = tk.Button(root, text='Decrease1', bg='darkred', fg='white', relief=tk.SOLID, command=click_decrease)
+decreaseBtn = tk.Button(root, text='Decrease - W', bg='darkred', fg='white', relief=tk.SOLID, command=click_decrease)
 decreaseBtn.pack(side=tk.LEFT, padx=10)
 
-decreaseBtn2 = tk.Button(root, text='Decrease2', bg='darkred', fg='white', relief=tk.SOLID, command=click_decrease2)
+decreaseBtn2 = tk.Button(root, text='Decrease', bg='darkred', fg='white', relief=tk.SOLID, command=click_decrease2)
 decreaseBtn2.pack(side=tk.RIGHT, padx=10)
 
-increaseBtn2 = tk.Button(root, text='Increase2', bg='darkblue', fg='white', relief=tk.SOLID, command=click_increase2)
+increaseBtn2 = tk.Button(root, text='Increase', bg='darkblue', fg='white', relief=tk.SOLID, command=click_increase2)
 increaseBtn2.pack(side=tk.RIGHT, padx=10)
 
 
