@@ -23,7 +23,6 @@ def click_increase():
 
 def click_decrease():
     global countClick
-    print(countClick)
     if countClick > 0:
         countClick -= 1
     update_label()
@@ -43,15 +42,15 @@ def click_decrease2():
 
 def update_label():
     if countClick < 0:
-        myLabel['text'] = f'Clicks: {countClick} (Negative)'
+        myLabel['text'] = f'Player 1 clicks: {countClick} (Negative)'
     else:
-        myLabel['text'] = f'Clicks: {countClick}/{targetClicks}'
+        myLabel['text'] = f'Player 1 clicks: {countClick}/{targetClicks}'
 
 def update_label2():
     if countClick2 < 0:
-        myLabel2['text'] = f'Clicks: {countClick2} (Negative)'
+        myLabel2['text'] = f'Player 2 clicks: {countClick2} (Negative)'
     else:
-        myLabel2['text'] = f'Clicks: {countClick2}/{targetClicks2}'
+        myLabel2['text'] = f'Player 2 clicks: {countClick2}/{targetClicks2}'
 
 def check_game_status():
     if countClick == targetClicks:
@@ -94,7 +93,6 @@ increaseBtn2.pack(side=tk.RIGHT, padx=10)
 
 def on_key_press(event):
     if event.keysym == 'w' or event.keysym == 'W':
-        print('click')
         click_increase()
     if event.keysym == 's' or event.keysym == 'S':
         click_decrease()
