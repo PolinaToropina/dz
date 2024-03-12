@@ -1,3 +1,4 @@
+import re
 import tkinter as tk
 import random
 
@@ -36,20 +37,22 @@ class Game:
         self.login_button.grid(row=2, columnspan=2)
 
     def auth(self):
+        password_pattern = re.compile(r"^\w{3,16}$")
         username = self.username_entry.get()
         password = self.password_entry.get()
 
         if username in self.users:
-            if self.users[username] == password:
+            if self.users[username] == password and password_pattern.match(password):
                 self.show_message("Ви авторизовані")
                 self.show_game_menu_page()
             else:
-                self.show_message("Невірний пароль")
+                self.show_message("Невірний пароль, або пароль не відповідає вимогам!")
         else:
-            self.users[username] = password
-            self.show_message("Створено аккаунт, та авторизовано")
-            self.show_game_menu_page()
-
+            if password_pattern.match(password):
+                self.users[username] = password
+                self.show_message("Створено аккаунт, та авторизовано")
+                self.show_game_menu_page()
+            else: self.show_message("Пароль не відповідає вимогам!")
     def show_message(self, message):
         self.message_label = tk.Label(self.login_frame, text=message)
         self.message_label.grid(row=3, columnspan=2)
