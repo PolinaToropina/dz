@@ -85,7 +85,7 @@ class Game:
         self.players = []
 
         for i in range(num_players):
-            player = Player(self.master, f"Гравець {i + 1}", num_steps, self.game_end, self.width, self.height)
+            player = Player(self.master, i, num_steps, self.game_end, self.width, self.height)
             self.players.append(player)
 
         self.winner_label = tk.Label(self.master, text="")
@@ -104,20 +104,27 @@ class Game:
 
 
 class Player:
-    def __init__(self, master, name, num_steps, result_callback, width, height):
+    def __init__(self, master, player_num, num_steps, result_callback, width, height):
         self.width = width
         self.height = height
         self.master = master
-        self.name = name
+        self.palyer_num = player_num
+        self.name = f"Гравець {player_num + 1}"
         self.num_steps = num_steps
         self.end_game_callback = result_callback
 
-        self.position_x = random.randint(0, self.width)
-        self.position_y = random.randint(0, self.height)
+        self.position_x = random.randint(0, self.width - 50)
+        self.position_y = random.randint(0, self.height - 50)
 
-        self.square = tk.Label(self.master, text=self.name)
-        self.square.bind("<Button-1>", self.move_square)
+        # self.square = tk.Label(self.master, text=self.name)
+        self.square = tk.Frame(self.master, width=50, height=50)
         self.square.place(x=self.position_x, y=self.position_y)
+        self.bg = "yellow"
+        if player_num == 1: self.bg = "green"
+        if player_num == 2: self.bg = "cyan"
+        self.name_label = tk.Label(self.square, text=self.name, bg=self.bg, height=3)
+        self.name_label.pack(expand=True, fill="both")
+        self.name_label.bind("<Button-1>", self.move_square)
 
         self.steps_label = tk.Label(self.master, text=f"Залишилось кроків: {self.num_steps}")
         self.steps_label.place(x=0, y=20)
@@ -125,8 +132,8 @@ class Player:
     def move_square(self, event):
         print(self.num_steps)
         if self.num_steps > 0:
-            self.position_x = random.randint(0, self.width)
-            self.position_y = random.randint(0, self.height)
+            self.position_x = random.randint(0, self.width - 50)
+            self.position_y = random.randint(0, self.height - 50)
             self.square.place(x=self.position_x, y=self.position_y)
             self.num_steps -= 1
             self.steps_label.config(text=f"Залишилось кроків: {self.num_steps}")
